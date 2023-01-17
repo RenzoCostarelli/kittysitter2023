@@ -1,0 +1,54 @@
+@import '../../styles/variables';
+@import '../../styles/functions';
+
+.section_basic{
+    // height: 100vh;
+    padding-block: 2rem;
+  
+    .section_title{
+        font-size: 5.5vw;
+        font-weight: bold;
+        color: $clr-primary-400;
+    }
+  
+  }
+
+.wrapper_overflow_hidden{
+    width: 100%;
+    overflow: hidden;
+
+    position: relative;
+    
+    .big_text{
+        font-size: 15rem;
+        line-height: 1;
+        span{
+            margin: 0 2rem;
+        }
+    }
+    &.line{
+
+        &:after{
+            --height: 1px;
+            content: '';
+            position: absolute;
+            width: 100%;
+    
+            height: var(--height);
+    
+            background-color: $clr-primary-400;
+            top: calc(50% + var(--height));
+            left: 0;
+            right: 0;
+            z-index: -1;
+        }
+    }
+
+
+
+}
+
+.fancy_text {
+    font-family: $ff-fancy;
+    // font-size: 20rem;
+}

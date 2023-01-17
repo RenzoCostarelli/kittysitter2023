@@ -1,0 +1,10 @@
+@import '../../styles/variables';
+@import '../../styles/functions';
+
+.social_icons_list {
+
+    align-items: center;
+    .icon{
+        width: 40px;
+    }
+}

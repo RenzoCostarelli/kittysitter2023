@@ -1,0 +1,60 @@
+@import '../../styles/variables';
+@import '../../styles/functions';
+
+.cards_container{
+    display: flex;
+    gap: 1rem;
+
+    align-items: flex-start;
+    justify-content: center;
+
+    margin-block: 3rem;
+
+    .card{
+        
+        background: rgb(232,166,166);
+        background: linear-gradient(72deg, rgba(232,166,166,1) 0%, rgba(194,212,236,1) 100%);
+        flex-basis: 350px;
+        border-radius: 1rem;
+        padding: 2rem 1rem;
+        
+        position: relative;
+
+        
+        z-index: 0;
+
+        .card_header{
+            img {
+                margin: 0 auto;
+            }
+            .title{
+                text-align: center;
+                font-weight: 400;
+                font-size: 1.2rem;
+                font-weight: bold;
+            }
+        }
+        .card_body{
+            padding: 1rem;
+        }
+        &::after{
+            content: '';
+            background-color: white;
+            position: absolute;
+            border-radius: 0.8rem;
+            inset: 0;
+
+            z-index: -1;
+        }
+
+    }
+}
+
+.stars_container{
+    display: flex;
+
+    .star{
+        color: orange;
+        font-size: 1.2rem;
+    }
+}

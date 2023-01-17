@@ -1,0 +1,56 @@
+@import '../../styles/variables';
+@import '../../styles/functions';
+
+.wrapper_overflow_hidden{
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    
+    .big_text{
+        font-size: 15rem;
+        line-height: 1;
+        span{
+            margin: 0 2rem;
+        }
+    }
+    &.line{
+
+        &:after{
+            --height: 1px;
+            content: '';
+            position: absolute;
+            width: 100%;
+    
+            height: var(--height);
+    
+            background-color: $clr-primary-400;
+            top: calc(50% + var(--height));
+            left: 0;
+            right: 0;
+            z-index: -1;
+        }
+    }
+}
+
+
+.scroll_gallery {
+    
+    display: flex;
+    justify-content: flex-end;
+    
+    gap: 1rem;
+    
+    .gallery_item {
+
+        height: 300px;
+        aspect-ratio: 1 / 1;
+        background-color: gray;
+        position: relative;
+        img{
+            object-fit: cover;
+            width: 100%;
+            height: auto;
+        }
+
+    }
+}
