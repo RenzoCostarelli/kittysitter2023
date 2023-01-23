@@ -8,6 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function GalleryScroller() {
     let hGalleryRef = useRef(null);
+    let scrollerRef = useRef(null);
 
     const galleryData = [
         {
@@ -47,13 +48,13 @@ export default function GalleryScroller() {
     
   
     useEffect(() => {
-       gsap.to(hGalleryRef.current, {
+       gsap.to(scrollerRef.current, {
         xPercent: 100,
         ease: "none", // <-- IMPORTANT!
         scrollTrigger: {
           trigger: hGalleryRef.current,
-          start: "left center",
-          end: "+=1000",
+          start: "-=1000",
+          end: "+=4000",
           pin: false,
           scrub: 0.5
         }
@@ -61,14 +62,15 @@ export default function GalleryScroller() {
     }, [])
 
     return (
-        <div className={`${s.wrapper_overflow_hidden} ${s.scroll_gallery}`} ref={hGalleryRef}>
-
+        <div className={`${s.wrapper_overflow_hidden}`} ref={hGalleryRef}>
+            <div className={`${s.scroll_gallery}`} ref={scrollerRef}>
                 {galleryData.map(({ src }) => (
                 <div className={s.gallery_item} key={src}>
                   <Image src={src} width={1000} height={1000} alt='kittysitter.com.ar'/>
                 </div>
                 ))}
 
+            </div>
         </div>
     );
 }

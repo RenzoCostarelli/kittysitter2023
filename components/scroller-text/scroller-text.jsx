@@ -16,12 +16,12 @@ const TextScroller = React.forwardRef((props, ref) => {
     useEffect(() => {
                   // scroll texto
                   gsap.to(bigTextRef, {
-                    xPercent: -350,
+                    xPercent: -150,
                     ease: "none", // <-- IMPORTANT!
                     scrollTrigger: {
                       trigger: bigTextRef,
-                      start: "left center",
-                      end: "+=2000",
+                      start: "-=500",
+                      end: "+=4000",
                       pin: false,
                       scrub: 0.5
                     }

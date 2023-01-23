@@ -13,6 +13,17 @@
 
 }
 
+.faq_container {
+    max-width: 1200px;
+    margin-inline: auto;
+    @include mobile {
+        flex-direction: column;
+        &:nth-child(2){
+            flex-direction: column-reverse;
+        }
+    }
+}
+
 .info_container{
     padding: 1rem;
     position: relative;
@@ -39,8 +50,6 @@
     height: 600px;
     padding: 1rem;
     position: relative;
-    // filter: drop-shadow(-2px 14px 0px $clr-primary-400);
-
     img {
         filter: drop-shadow(-10px 10px $clr-primary-400); 
         object-fit: contain;
