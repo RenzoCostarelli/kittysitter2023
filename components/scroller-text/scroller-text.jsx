@@ -30,7 +30,7 @@ const TextScroller = React.forwardRef((props, ref) => {
 
     return (
         <div className={`${style.wrapper_overflow_hidden} ${style.line} `} >
-        <div className={`${style.big_text}`} ref={el => {bigTextRef = el}}>
+        <div className={`${style.big_text}`} ref={el => {bigTextRef = el}}  data-scroll data-scroll-direction='horizontal' data-scroll-speed="-3">
           <span className={`${style.fw_thin}`}>purr</span><span className={`${style.fancy_text} ${style.fs_italic}`}>miau</span><span className={`${style.fw_thin}`}>purrr</span><span className={`${style.fancy_text}`}>meow</span>
           <span className={`${style.fs_italic}`}>meow</span><span className={`${style.fancy_text}`}>miau</span><span className={`${style.fs_italic}`}>purrr</span><span className={`${style.fancy_text}`}>meow</span>
         </div>

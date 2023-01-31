@@ -29,18 +29,18 @@ export default function RevealTitle(){
     }, [])
 
     return (
-        <h1 className={`${styles.title} ${styles.text_accent_100}`} ref={el => {titleRef = el}}>
-        <div className={`${styles.char}`}>K</div>
-        <div className={`${styles.char}`}>i</div>
-        <div className={`${styles.char}`}>t</div>
-        <div className={`${styles.char}`}>t</div>
-        <div className={`${styles.char}`}>y</div>
-        <div className={`${styles.char}`}>s</div>
-        <div className={`${styles.char}`}>i</div>
-        <div className={`${styles.char}`}>t</div>
-        <div className={`${styles.char}`}>t</div>
-        <div className={`${styles.char}`}>e</div>
-        <div className={`${styles.char}`}>r</div>
-      </h1>
+        <h1 className={`${styles.title} ${styles.text_accent_100}`} ref={el => {titleRef = el}} data-scroll data-scroll-speed="1.5">
+          <div className={`${styles.char}`}>K</div>
+          <div className={`${styles.char}`}>i</div>
+          <div className={`${styles.char}`}>t</div>
+          <div className={`${styles.char}`}>t</div>
+          <div className={`${styles.char}`}>y</div>
+          <div className={`${styles.char}`}>s</div>
+          <div className={`${styles.char}`}>i</div>
+          <div className={`${styles.char}`}>t</div>
+          <div className={`${styles.char}`}>t</div>
+          <div className={`${styles.char}`}>e</div>
+          <div className={`${styles.char}`}>r</div>
+        </h1>
     )
 }

@@ -1,4 +1,6 @@
 import React, { useEffect, useLayoutEffect, useRef, Suspense } from 'react'
+import { Canvas } from '@react-three/fiber'
+import Experience from '../experience/experience'
 
 import styles from './main-hero.module.scss'
 import RevealTitle from '../title-reveal/title-reveal';
@@ -8,15 +10,14 @@ export default function MainHero() {
 
 
     return (
-        <header className={styles.headerMain}>
-        <div className={styles.shadow}></div>
-        <div className={`${styles.hero_container} ${styles.bg_primary_400}`}>
+        <header className={styles.headerMain} data-scroll>
+        <div className={`${styles.hero_container} ${styles.bg_primary_400}`} >
             <div className='main_container'>
 
                 <div className={styles.hero_box}>
                   <RevealTitle />
 
-                  <p className={`${styles.text_neutral_100}`}>
+                  <p className={`${styles.text_neutral_100}`} data-scroll data-scroll-speed="1">
                     Kittysitter es el primer servicio profesional de cuidado exclusivo de gatitos a 
                     domicilio en Rosario. Somos un equipo de personas altamente responsables, 
                     detallistas y comprometidas.
@@ -35,7 +36,18 @@ export default function MainHero() {
             </div>
         </div>
         <div className={styles.canvas_container}>
-
+              <Canvas
+                  flat
+                  camera={{
+                    fov: 45,
+                    near: 0.1,
+                    far: 200,
+                    position: [1, 2, 6],
+                  }}
+                > 
+                                 
+                  <Experience />
+              </Canvas>
         </div>
 
         <div className={styles.cat_paw}>
