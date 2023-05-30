@@ -1,37 +1,51 @@
-import React, { useEffect, useLayoutEffect, useRef, Suspense } from 'react'
+import React, { useEffect, useLayoutEffect, useRef, Suspense, useState } from 'react'
+import { useFrame } from '@react-three/fiber';
 import { Canvas } from '@react-three/fiber'
+import { gsap } from "gsap";
 import Experience from '../experience/experience'
-
 import styles from './main-hero.module.scss'
 import RevealTitle from '../title-reveal/title-reveal';
+import CtaButton from '../cta-button';
 
 export default function MainHero() {
-   
+  const [isLoaded, setIsLoaded] = useState(false)
 
+  let descRef = useRef()
+  const setLoad = () => {
+      
+    setIsLoaded(true)
+    console.log(isLoaded)
+  }
 
-    return (
+  useEffect(() => {
+    let ctx = gsap.context(() => {   
+      gsap.set(descRef.current, {y: 20, opacity: 0 })
+
+      gsap.to(descRef.current, {
+        y: 0,
+        opacity: 1,
+        delay: 0,
+        duration: 0.5,
+        onComplete: (() => { setLoad() })
+      });
+
+    })    
+    return () => ctx.revert();
+
+  }, [])
+
+      return (
         <header className={styles.headerMain} data-scroll>
         <div className={`${styles.hero_container} ${styles.bg_primary_400}`} >
             <div className='main_container'>
-
-                <div className={styles.hero_box}>
+                <div className={styles.hero_box} data-scroll data-scroll-speed="1">
                   <RevealTitle />
-
-                  <p className={`${styles.text_neutral_100}`} data-scroll data-scroll-speed="1">
+                  <p className={`${styles.text_neutral_100} ${styles.description}`} ref={ descRef }>
                     Kittysitter es el primer servicio profesional de cuidado exclusivo de gatitos a 
                     domicilio en Rosario. Somos un equipo de personas altamente responsables, 
                     detallistas y comprometidas.
                   </p>
-
-                  {/* <SvgButton /> */}
-
-                  {/* <MainCtaButton 
-                    text={'Reservar visita'}
-                    href={'#'}
-                  /> */}
-
-         
-
+                  <CtaButton type={'form'}/>
               </div>
             </div>
         </div>
@@ -45,18 +59,17 @@ export default function MainHero() {
                     position: [1, 2, 6],
                   }}
                 > 
-                                 
-                  <Experience />
+                <Experience />
               </Canvas>
         </div>
 
-        <div className={styles.cat_paw}>
+        {/* <div className={styles.cat_paw}>
           <div className={styles.paw_gum}></div>
           <div className={styles.paw_gum}></div>
           <div className={styles.paw_gum}></div>
           <div className={styles.paw_gum}></div>
           <div className={styles.cat_bigGum}></div>
-        </div>
+        </div> */}
 
         
         <div className='custom_divider_top'>

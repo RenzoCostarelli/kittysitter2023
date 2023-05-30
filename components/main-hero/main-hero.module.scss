@@ -17,7 +17,7 @@
 }
 
 .hero_container {
-    height: 100vh;
+    height: 95vh;
 
     display: flex;
     align-items: center;
@@ -27,7 +27,10 @@
 
     overflow: hidden;
 
+    pointer-events: none;
+
 }
+
 
 .shadow {
     position: absolute;
@@ -42,6 +45,7 @@
 
 .hero_box{
     // background-color: $clr-neutral-100;
+    pointer-events: all;
     position: relative;
 
     display: flex;

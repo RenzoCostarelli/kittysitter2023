@@ -1,13 +1,14 @@
 import { LocomotiveScrollProvider } from "react-locomotive-scroll";
 import { useRef } from "react";
-import styles from './layout.module.scss';
+import Navbar from "./navbar/navbar";
+import s from './layout.module.scss';
 
 export default function Layout({ children }) {
 
     const containerRef = useRef(null)
 
-    return (
-    <LocomotiveScrollProvider
+    return (<>
+      <LocomotiveScrollProvider
         options={
           {
             smooth: true,
@@ -22,10 +23,14 @@ export default function Layout({ children }) {
           ]
         }
         containerRef={containerRef}
-      >
+      >      
         <div data-scroll-container ref={containerRef}>
+            {/* <div className={`${s.main_nav_container}`}>
+              <Navbar />
+            </div> */}
             {children}
         </div>
     </LocomotiveScrollProvider>
+    </>
     );
 }

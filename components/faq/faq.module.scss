@@ -36,6 +36,10 @@
         width: fit-content;
         line-height: 1.2;
         color: $clr-primary-400;
+
+        @include mobile() {
+            font-size: 16vw;
+        }
     }
 
     p{

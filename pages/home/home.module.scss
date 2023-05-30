@@ -11,17 +11,23 @@
 }
 
 .section_reviews {
+    margin-top: -1px;
     position: relative;
+    background-color: lightpink;
 }
 
 .footer {
     // position: relative;
+    padding-bottom: 5rem;
     background: white;
     z-index: 1;
     .logo_footer {
         width: 300px;
+        height: 170px;
+        position: relative;
         img{
             object-fit: contain;
+            height: auto;
         }
     }
     .social_links{

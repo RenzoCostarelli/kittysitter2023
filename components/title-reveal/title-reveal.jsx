@@ -13,23 +13,20 @@ export default function RevealTitle(){
     let titleRef = useRef(null);
 
     useEffect(() => {
-          
+      let ctx = gsap.context(() => {   
         gsap.to(titleRef.children, {
           y: 0,
           stagger: 0.05,
-          delay: 0.2,
+          delay: 0,
           duration: .1,
-          onComplete(){
-            // console.log('iuju');
-          }
-        }, titleRef);
+        });
 
-        
-
+      })    
+      return () => ctx.revert();
     }, [])
 
     return (
-        <h1 className={`${styles.title} ${styles.text_accent_100}`} ref={el => {titleRef = el}} data-scroll data-scroll-speed="1.5">
+        <h1 className={`${styles.title} ${styles.text_accent_100}`} ref={el => {titleRef = el}} data-scroll data-scroll-speed="0">
           <div className={`${styles.char}`}>K</div>
           <div className={`${styles.char}`}>i</div>
           <div className={`${styles.char}`}>t</div>

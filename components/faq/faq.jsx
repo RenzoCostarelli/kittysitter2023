@@ -3,10 +3,13 @@ import styles from './faq.module.scss'
 import Image from 'next/image'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
+import { useMousePosition } from '../../hooks/useMousePosition '
 
 gsap.registerPlugin(ScrollTrigger)
 
 export default function Faq(props) {
+
+  const mousePosition =  useMousePosition();  
 
   const title1 = useRef()
   const title2 = useRef()
@@ -75,7 +78,7 @@ export default function Faq(props) {
                       Siempre teniendo en cuenta el temperamento y respetando sus tiempos. 
                       Cuando estamos en tu casa te enviamos la ubicación en tiempo real, fotos y videos.
                     </p>
-                    <div className={`${styles.pattern_decoration_dots_small} ${styles.deco_circle}`} data-scroll data-scroll-speed="0.5"></div>
+                    <div className={`${styles.pattern_decoration_dots_small} ${styles.deco_circle}`} data-scroll data-scroll-speed="-1"></div>
                   </div>
               </div>
 
@@ -90,7 +93,7 @@ export default function Faq(props) {
                   llevados a un entorno nuevo. Antes de tu partida hacemos una entrevista previa para 
                   conocerlos y que nos muestres todo lo que consideres importante.
                   </p>
-                  <div className={`${styles.pattern_decoration_dots} ${styles.deco_box}`} data-scroll data-scroll-speed="0.5"></div>
+                  <div className={`${styles.pattern_decoration_dots} ${styles.deco_box}`} data-scroll data-scroll-speed="-1"></div>
                 </div>
                 <div className={`${styles.image_container}`} data-scroll data-scroll-speed="1">
                   <Image  src="/images/Kitty-2.png" 

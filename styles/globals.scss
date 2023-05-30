@@ -106,6 +106,9 @@ svg {
       font-size: 5.5vw;
       font-weight: bold;
       
+      @include mobile() {
+        font-size: 16vw;
+      }
 
   }
 
@@ -113,6 +116,9 @@ svg {
       line-height: 1;
       font-size: 3.5vw;
       font-weight: bold;
+      @include mobile() {
+        font-size: 10vw;
+      }
   }
 
 }
@@ -124,6 +130,9 @@ svg {
     line-height: 1;
     font-size: 5.5vw;
     font-weight: bold;
+    @include mobile() {
+      font-size: 16vw;
+    }
 }
 
 .linear_gradient_background {
@@ -160,7 +169,7 @@ svg {
       display: block;
       width: calc(139% + 1.3px);
       height: 59px;
-      fill: #e9b5b5;
+      fill: lightpink;
   }
   
 }

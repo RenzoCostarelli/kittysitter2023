@@ -1,3 +1,5 @@
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import useStore from '../../lib/store';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image'
@@ -11,7 +13,6 @@ import Experience from '../../components/experience/experience'
 
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 
-import React, { useEffect, useLayoutEffect, useRef } from 'react'
 
 import styles from './home.module.scss'
 import GalleryScroller from '../../components/scroller-gallery/scroller-gallery';
@@ -19,7 +20,13 @@ import Reviews from '../../components/reviews-card/reviews-card';
 import SocialNetworkLinks from '../../components/social-network-links/social-network-links';
 import Medios from '../../components/news-logos-list/news-logos-list';
 
+import ModalContainer from '../../components/modal/modal';
+import CtaButton from '../../components/cta-button';
+
 export default function Home() {
+
+  const showModal = useStore(({ showForm }) => showForm)
+
   useEffect(() => {
     let scroll;
     import("locomotive-scroll").then((locomotiveModule) => {
@@ -52,7 +59,7 @@ export default function Home() {
           </Head>
 
           <MainHero />
-
+          
           <main className={styles.main}>
 
               <section className={`${styles.section_faq} `} ref={scrollerTrigger}>
@@ -72,23 +79,17 @@ export default function Home() {
               </section>
 
               <section className={`${styles.section_reviews} 
-                              ${styles.linear_gradient_background} 
                               ${styles.vh_100} 
                               ${styles.pb_6} 
                               ${styles.flex_align_center}`}>
-                <div className={`${styles.main_container} ${styles.z_index_0}`}> 
+                <div className={`${styles.main_container} ${styles.z_index_0} ${styles.w100}`} data-scroll data-scroll-speed="1"> 
                   {/* deco */}
                   <div className={`${styles.pattern_reviews_section_container} ${styles.pattern_decoration_white_dots}`}></div> 
                   <div className={`${styles.pattern_container_bottom_right} ${styles.pattern_decoration_white_dots}`}></div> 
-                  {/* deco */}     <h1 className={`section_title ${styles.text_center} ${styles.text_accent_100}  ${styles.drop_shadow_100}`} data-scroll data-scroll-speed="1">Reseñas</h1>
+                  {/* deco */}     <h1 className={`section_title ${styles.text_center} ${styles.text_accent_100}  ${styles.drop_shadow_100}`}>Reseñas</h1>
                     <Reviews/>
                     <div className={`${styles.button_container} ${styles.text_center}`}>
-                      <a 
-                      href="#" 
-                      className={`main_cta_offset`} 
-                      target='_blank' 
-                      data-text="Todas las reseñas"
-                      data-scroll data-scroll-speed="3">Todas las reseñas</a>
+                      <CtaButton type={'reviews'}/>
                     </div>
                 </div>
               </section>
@@ -111,10 +112,9 @@ export default function Home() {
 
           <footer className={`${styles.footer} bg-white`}>
             <div className={`wrapper flex_column`}>
-              {/* <div className={`${styles.logo_footer}`}>
+              <div className={`${styles.logo_footer}`}>
                   <Image src="/images/kittysitter_logo_nav.png" fill  alt='kittysitter footer logo'/>
-
-              </div> */}
+              </div>
               <div className={`${styles.social_links} ${styles.gap_1}`}>
                 <SocialNetworkLinks/>
 
@@ -124,13 +124,11 @@ export default function Home() {
 
                 </div>
             </div>
-
-            {/* CTA FORM */}
-            {/* CTA DOC */}
-            {/* LINK A MI WEB */}
-
             </footer>
-
+            
+            { showModal && 
+              <ModalContainer />          
+            }
         </Layout>
      </div>
     )

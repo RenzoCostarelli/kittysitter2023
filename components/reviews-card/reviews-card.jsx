@@ -1,12 +1,14 @@
 import Image from 'next/image'
 // import RankingStars from '../ranking-stars/ranking-stars'
-import reviewStyles from './reviews-card.module.scss'
+import s from './reviews-card.module.scss'
 
 
 export default function Reviews() {
 
 
     // dummy data
+
+    // CAMBIAR POR CAROUSEL DE TARJETAS (PROBAR VERTICAL EN DESKTOP Y HORIZONTAL EN MOBILE)
 
     const reviewsList = [
         {
@@ -34,17 +36,21 @@ export default function Reviews() {
 
 
     return(
-        <div className={`${reviewStyles.cards_container}`}>
+        <div className={`${s.cards_container}`}>
             {reviewsList.map(({ id, img, name, review, stars }) => (
-                <div className={`${reviewStyles.card}`} key={id}>
-                    <div className={`${reviewStyles.card_header} ${reviewStyles.text_center}`} >
-                        <Image className={`${reviewStyles.profile_pic}`} src={img} width={120} height={120} alt="Kitty sitter reviews" />
-                        <h3 className={`${reviewStyles.title}`}>{name}</h3>
-                    </div>
-                    <div className={`${reviewStyles.card_body}`}>
-                        {/* <RankingStars stars={stars}/> */}
- 
+                <div className={`${s.card}`} key={id}>
+                    {/* <div className={`${s.card_header} ${s.text_center}`} >
+                        <Image className={`${s.profile_pic}`} src={img} width={120} height={120} alt="Kitty sitter reviews" />
+                        <h3 className={`${s.title}`}>{name}</h3>
+                    </div> */}
+                    {/* <div className={`${s.separator}`}></div> */}
+                    <div className={`${s.card_body}`}>
                         <p>{review}</p>
+                        <div className={`${s.stars}`}>
+                            {[...Array(stars)].map((_, index) => (
+                            <span key={index} className={`${s.star}`}>★</span>
+                            ))}
+                        </div>
                     </div>
                 </div>
             ))}

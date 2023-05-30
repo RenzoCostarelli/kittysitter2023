@@ -1,0 +1,77 @@
+@import '../../styles/variables';
+@import '../../styles/functions';
+
+.nav_button_container {
+    a {
+      display: block;
+      width: max-content;
+      margin: 0 auto;
+      text-decoration: none;
+    }
+    a,
+    button {
+        padding: 0.6rem 2rem;
+        background-color: black;
+        color: white;
+        border-radius: 2rem;
+        position: relative;
+        z-index: 0;
+        cursor: pointer;
+        div {
+          transition: 200ms;
+        }
+        &::after {
+          content: '';
+          background-color: black;
+          position: absolute;
+          border-radius: 2.2rem;
+          height: 100%;
+          width: 100%;
+          inset: 0;
+          z-index: -1;
+          transition: 200ms;
+          border: 1px solid black;
+        }
+
+        &:hover {
+          &::after {
+            background-color: #B2A4FF;
+            transform: translate(-0.2rem, -0.2rem);
+          }
+          div {
+            color: black;
+            transform: translate(-0.2rem, -0.2rem);
+          }          
+        }
+      }
+      &.be_a_kitty {
+        a,
+        button{
+          &:hover {
+            &::after {            
+              background-color: #ffb9a4;
+            }
+          }
+        }
+      }
+      &.reviews {
+        a,
+        button{
+          &:hover {
+            &::after {            
+              background-color: #B2A4FF;
+            }
+          }
+        }
+      }
+      &.appointment {
+        a,
+        button{
+          &:hover {
+            &::after {            
+              background-color: #FDF7C3;
+            }
+          }
+        }
+      }
+}

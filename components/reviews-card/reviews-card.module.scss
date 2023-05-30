@@ -2,27 +2,37 @@
 @import '../../styles/functions';
 
 .cards_container{
-    display: flex;
+    // display: flex;
     gap: 1rem;
+    width: 100%;
 
     align-items: flex-start;
     justify-content: center;
+    flex-wrap: wrap;
 
     margin-block: 3rem;
 
     .card{
-        
+        width: min(600px, 95vw);
+        margin-inline: auto;
         background: rgb(232,166,166);
         background: linear-gradient(72deg, rgba(232,166,166,1) 0%, rgba(194,212,236,1) 100%);
         flex-basis: 350px;
         border-radius: 1rem;
         padding: 2rem 1rem;
         
-        position: relative;
-
-        
+        position: relative;        
         z-index: 0;
+        box-shadow: 4px 4px #e1b7b6, 4px 5px 0 2px #fff;
 
+        .separator{
+            height: 3px;
+            width: 40%;
+            margin-inline: auto;
+            border-radius: 0.5rem;
+            background-color: #E0D39F;
+            margin-top: 0.5rem;
+        }
         .card_header{
             img {
                 margin: 0 auto;
@@ -32,6 +42,7 @@
                 font-weight: 400;
                 font-size: 1.2rem;
                 font-weight: bold;
+                margin-top: 1rem;
             }
         }
         .card_body{
@@ -49,12 +60,23 @@
 
     }
 }
+// Define the color and glow variables
+$starColor: #ffd700;  // Golden color
+$glowColor: #ffbb00;  // Glow color
 
-.stars_container{
+.stars{
     display: flex;
 
-    .star{
-        color: orange;
-        font-size: 1.2rem;
-    }
+
+// Define the styles for the stars
+.star {
+  color: $starColor;
+  font-size: 2.5rem;  // Adjust the size as needed
+  transition: filter 0.2s ease-in-out;
+  cursor: initial;
+  &:hover {
+    text-shadow: 0 0 10px $glowColor;  // Add a glowing effect on hover
+  }
 }
+}
+

@@ -45,7 +45,8 @@ $fs-xl: 8rem;
 // COLORS
 
 $clr-primary-100: hsl(18deg 63% 83%);
-$clr-primary-400: hsl(0, 59%, 78%); // color de la marca
+// $clr-primary-400: rgb(232, 166, 166); // color de la marca
+$clr-primary-400: lightpink; // color de la marca
 
 
 $clr-accent-100: #fcefd6;
@@ -161,6 +162,8 @@ $clr-neutral-900: #323232; //  neutral mas oscuro
 .vh_100 { min-height: 100vh;}
 
 .z_index_0 { z-index: 0; }
+
+.w100 { width: 100%; }
 
 .text_center { text-align: center; }
 
