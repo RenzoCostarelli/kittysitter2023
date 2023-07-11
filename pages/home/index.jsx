@@ -1,18 +1,12 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import useStore from '../../lib/store';
 import Head from 'next/head';
-import Link from 'next/link';
 import Image from 'next/image'
 import Faq from '../../components/faq/faq';
 
 import Layout from '../../components/layout';
 import MainHero from '../../components/main-hero/main-hero';
 import TextScroller from '../../components/scroller-text/scroller-text';
-import { Canvas } from '@react-three/fiber'
-import Experience from '../../components/experience/experience'
-
-import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
-
 
 import styles from './home.module.scss'
 import GalleryScroller from '../../components/scroller-gallery/scroller-gallery';

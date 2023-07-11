@@ -1,14 +1,13 @@
 import React, { useEffect, useLayoutEffect, useRef, Suspense, useState } from 'react'
-import { useFrame } from '@react-three/fiber';
-import { Canvas } from '@react-three/fiber'
+import Image from 'next/image'
 import { gsap } from "gsap";
-import Experience from '../experience/experience'
 import styles from './main-hero.module.scss'
 import RevealTitle from '../title-reveal/title-reveal';
 import CtaButton from '../cta-button';
 
 export default function MainHero() {
   const [isLoaded, setIsLoaded] = useState(false)
+  const imageContainerRef = useRef(null);
 
   let descRef = useRef()
   const setLoad = () => {
@@ -16,6 +15,23 @@ export default function MainHero() {
     setIsLoaded(true)
     console.log(isLoaded)
   }
+
+  useEffect(() => {
+    const imageContainer = imageContainerRef.current;
+  
+    gsap.set(imageContainer, {
+      clipPath: 'polygon(0 0, 100% 0, 100% 0, 0 0)',
+      yPercent: '50',
+    });
+  
+    gsap.to(imageContainer, {
+      clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
+      yPercent: '0',
+      duration: 1,
+      delay: 1,
+      ease: 'power2.out',
+    });
+  }, []);
 
   useEffect(() => {
     let ctx = gsap.context(() => {   
@@ -37,7 +53,7 @@ export default function MainHero() {
       return (
         <header className={styles.headerMain} data-scroll>
         <div className={`${styles.hero_container} ${styles.bg_primary_400}`} >
-            <div className='main_container'>
+            <div className={`main_container ${styles.inner_content}`}>
                 <div className={styles.hero_box} data-scroll data-scroll-speed="1">
                   <RevealTitle />
                   <p className={`${styles.text_neutral_100} ${styles.description}`} ref={ descRef }>
@@ -45,32 +61,22 @@ export default function MainHero() {
                     domicilio en Rosario. Somos un equipo de personas altamente responsables, 
                     detallistas y comprometidas.
                   </p>
-                  <CtaButton type={'form'}/>
-              </div>
+                  <div className={`${styles.cta_area}`}>
+                    <CtaButton type={'form'}/>
+                    <CtaButton type={'kittyForm'}/>
+                  </div>
+                </div>
+                <div className={styles.image_area} ref={imageContainerRef}>
+                    <div className={styles.image_container} >
+                        <Image  src="/images/Room-Kitty.png" 
+                              fill 
+                              sizes="999px" 
+                              alt="Kittysitter Rosario"
+                      />
+                    </div>
+                </div>
             </div>
         </div>
-        {/* <div className={styles.canvas_container}>
-              <Canvas
-                  flat
-                  camera={{
-                    fov: 45,
-                    near: 0.1,
-                    far: 200,
-                    position: [1, 2, 6],
-                  }}
-                > 
-                <Experience />
-              </Canvas>
-        </div> */}
-
-        {/* <div className={styles.cat_paw}>
-          <div className={styles.paw_gum}></div>
-          <div className={styles.paw_gum}></div>
-          <div className={styles.paw_gum}></div>
-          <div className={styles.paw_gum}></div>
-          <div className={styles.cat_bigGum}></div>
-        </div> */}
-
         
         <div className='custom_divider_top'>
           <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">

@@ -47,10 +47,34 @@
       &.be_a_kitty {
         a,
         button{
+          color: black;
           &:hover {
             &::after {            
               background-color: #ffb9a4;
             }
+          }
+          &::after {
+            content: '';
+            background-color: white;
+            position: absolute;
+            border-radius: 2.2rem;
+            height: 100%;
+            width: 100%;
+            inset: 0;
+            z-index: -1;
+            transition: 200ms;
+            border: 1px solid white;
+          }
+  
+          &:hover {
+            &::after {
+              background-color: #B2A4FF;
+              transform: translate(-0.2rem, -0.2rem);
+            }
+            div {
+              color: black;
+              transform: translate(-0.2rem, -0.2rem);
+            }          
           }
         }
       }

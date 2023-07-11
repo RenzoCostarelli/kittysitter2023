@@ -27,7 +27,28 @@
 
     overflow: hidden;
 
-    pointer-events: none;
+    // pointer-events: none;
+    .inner_content {
+        display: flex;
+        position: relative;
+    }
+    .image_area {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        right: 0;
+        top: 10%;
+    }
+    .image_container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        width: min(500px, 90vw);
+        aspect-ratio: 1;
+        transform: rotate(2deg);
+        animation: hover-y 2000ms ease-in-out infinite alternate;
+    }
 
 }
 
@@ -44,8 +65,7 @@
 }
 
 .hero_box{
-    // background-color: $clr-neutral-100;
-    pointer-events: all;
+    // pointer-events: all;
     position: relative;
 
     display: flex;
@@ -53,15 +73,8 @@
 
     justify-content: center;
     gap: 1rem;
-
-    padding: 4rem 3rem;
-    border-radius: 1rem;
-
-    margin: 0 auto;
     text-align: left;
-
     height: 100%;
-
     z-index: 2;
 
     @include mobile {
@@ -72,6 +85,11 @@
     p{
         width: min(500px, 90vw);
         // margin-inline: auto;
+    }
+
+    .cta_area {
+        display: flex;
+        gap: 1rem;
     }
 
     .main_button {
@@ -217,4 +235,8 @@
         background-color: #e8a6a6;
         border-radius: 50rem;
     }
+}
+
+@keyframes hover-y {
+    100% { transform: rotate(2deg) translateY(10px);}
 }
