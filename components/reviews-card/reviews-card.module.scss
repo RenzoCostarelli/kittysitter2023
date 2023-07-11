@@ -2,15 +2,10 @@
 @import '../../styles/functions';
 
 .cards_container{
-    // display: flex;
-    gap: 1rem;
     width: 100%;
-
     align-items: flex-start;
     justify-content: center;
     flex-wrap: wrap;
-
-    margin-block: 3rem;
 
     .card{
         width: min(600px, 95vw);
@@ -20,11 +15,19 @@
         flex-basis: 350px;
         border-radius: 1rem;
         padding: 2rem 1rem;
-        
+        margin-block: 1rem;
         position: relative;        
         z-index: 0;
         box-shadow: 4px 4px #e1b7b6, 4px 5px 0 2px #fff;
-
+        &.activeCard {
+            .star {
+                animation: show 300ms ease-in-out forwards;
+                transition: opacity 1s ease-in-out scale 300ms;
+            }
+        }
+        p {
+            font-weight: 500;
+        }
         .separator{
             height: 3px;
             width: 40%;
@@ -66,17 +69,17 @@ $glowColor: #ffbb00;  // Glow color
 
 .stars{
     display: flex;
-
-
-// Define the styles for the stars
-.star {
-  color: $starColor;
-  font-size: 2.5rem;  // Adjust the size as needed
-  transition: filter 0.2s ease-in-out;
-  cursor: initial;
-  &:hover {
-    text-shadow: 0 0 10px $glowColor;  // Add a glowing effect on hover
-  }
+    .star {
+        opacity: 0;
+        color: $starColor;
+        font-size: 2.5rem;
+        cursor: initial;
+        scale: 0
+    }
 }
+
+@keyframes show {
+    90% { scale: 1.2 }
+    100% { opacity: 1; scale: 1 }
 }
 

@@ -16,6 +16,12 @@
     background-color: lightpink;
 }
 
+.slider_container {
+    width: min(700px, 95vw);
+    margin-inline: auto;
+    padding-block: 1rem;
+}
+
 .footer {
     // position: relative;
     padding-bottom: 5rem;

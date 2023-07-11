@@ -396,3 +396,18 @@ html.has-scroll-dragging {
   [data-scroll-direction="horizontal"] .c-scrollbar_thumb {
     right: auto;
     bottom: 0; }
+
+
+.swiper-wrapper {
+  padding-bottom: 3rem;
+}
+.swiper-pagination {
+  bottom: 0;
+}
+
+.swiper-pagination-bullet {
+  scale: 1.4;
+  &.swiper-pagination-bullet-active {
+    background-color: #919191;
+  }
+}

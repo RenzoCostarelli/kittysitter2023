@@ -7,8 +7,8 @@ export default function Experience() {
     <>
         {/* lights */}
         <color attach="background" args={['lightpink']} />
-        <directionalLight castShadow position={ [ 0, 2, 3 ] } intensity={ 1.7 }/>
-        <ambientLight intensity={ 0.2 } />
+        {/* <directionalLight castShadow position={ [ 0, 2, 3 ] } intensity={ 1.7 }/> */}
+        {/* <ambientLight intensity={0.5} /> */}
         {/* model */}
         <Model />
     </>

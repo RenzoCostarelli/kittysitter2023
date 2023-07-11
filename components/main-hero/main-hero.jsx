@@ -49,7 +49,7 @@ export default function MainHero() {
               </div>
             </div>
         </div>
-        <div className={styles.canvas_container}>
+        {/* <div className={styles.canvas_container}>
               <Canvas
                   flat
                   camera={{
@@ -61,7 +61,7 @@ export default function MainHero() {
                 > 
                 <Experience />
               </Canvas>
-        </div>
+        </div> */}
 
         {/* <div className={styles.cat_paw}>
           <div className={styles.paw_gum}></div>

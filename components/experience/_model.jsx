@@ -68,6 +68,13 @@ const Gradient = () => {
   );
 };
 
+function Zoom() {
+  useFrame((state, delta) => {
+    state.camera.zoom += delta / 100
+    state.camera.updateProjectionMatrix()
+  })
+}
+
 export default function Model() {
 
   // const mousePosition =  useMousePosition();  
@@ -161,7 +168,10 @@ export default function Model() {
               position={[ 2, -0.5, 0]}
               rotation={[0.1, 0.7, 0.02]}
               castShadow
+              receiveShadow={true}
           />
+          <Environment preset="city" castShadow/>
+          {/* <Zoom /> */}
            {/* <Gradient /> */}
           {/* <mesh geometry={nodes.Object_12.geometry} 
                 scale={ 0.3 } 

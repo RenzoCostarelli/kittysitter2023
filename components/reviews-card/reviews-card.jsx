@@ -1,14 +1,16 @@
-import Image from 'next/image'
-// import RankingStars from '../ranking-stars/ranking-stars'
+import SwiperCore, { Autoplay, Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+SwiperCore.use([Autoplay, Navigation, Pagination]);
+
+// Swiper styles
+import 'swiper/css';
 import s from './reviews-card.module.scss'
+import 'swiper/swiper-bundle.css';
+
 
 
 export default function Reviews() {
-
-
-    // dummy data
-
-    // CAMBIAR POR CAROUSEL DE TARJETAS (PROBAR VERTICAL EN DESKTOP Y HORIZONTAL EN MOBILE)
 
     const reviewsList = [
         {
@@ -34,27 +36,35 @@ export default function Reviews() {
         },
     ]
 
-
     return(
         <div className={`${s.cards_container}`}>
-            {reviewsList.map(({ id, img, name, review, stars }) => (
-                <div className={`${s.card}`} key={id}>
-                    {/* <div className={`${s.card_header} ${s.text_center}`} >
-                        <Image className={`${s.profile_pic}`} src={img} width={120} height={120} alt="Kitty sitter reviews" />
-                        <h3 className={`${s.title}`}>{name}</h3>
-                    </div> */}
-                    {/* <div className={`${s.separator}`}></div> */}
-                    <div className={`${s.card_body}`}>
-                        <p>{review}</p>
-                        <div className={`${s.stars}`}>
-                            {[...Array(stars)].map((_, index) => (
-                            <span key={index} className={`${s.star}`}>★</span>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            ))}
+            <Swiper
+            slidesPerView={1}
+            spaceBetween={10}
+            autoplay={{ delay: 5000 }} 
+            speed={1000}
+            navigation
+            pagination={{ clickable: true }}
+            >
+                {reviewsList.map(({ id, review, stars }) => (
+                    <SwiperSlide key={id}>
+                        {({ isActive }) => (
+                            <div className={`${s.card} ${isActive ? s.activeCard : ''}`}>
+                                <div className={s.card_body}>
+                                    <p>{review}</p>
+                                    <div className={s.stars}>
+                                        {[...Array(stars)].map((_, index) => (
+                                        <span key={index} className={s.star} style={{ animationDelay: `${index * 0.5}s` }}>★</span>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                    </SwiperSlide>
+                ))}
+            </Swiper>
 
         </div>
     )
 }
+

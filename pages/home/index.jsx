@@ -87,7 +87,9 @@ export default function Home() {
                   <div className={`${styles.pattern_reviews_section_container} ${styles.pattern_decoration_white_dots}`}></div> 
                   <div className={`${styles.pattern_container_bottom_right} ${styles.pattern_decoration_white_dots}`}></div> 
                   {/* deco */}     <h1 className={`section_title ${styles.text_center} ${styles.text_accent_100}  ${styles.drop_shadow_100}`}>Reseñas</h1>
-                    <Reviews/>
+                    <div className={styles.slider_container}>
+                      <Reviews/>
+                    </div>
                     <div className={`${styles.button_container} ${styles.text_center}`}>
                       <CtaButton type={'reviews'}/>
                     </div>
