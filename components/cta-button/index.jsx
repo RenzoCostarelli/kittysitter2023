@@ -6,7 +6,7 @@ function KittyBtn({color}) {
     <div className={`${s.nav_button_container} ${s.be_a_kitty}`} data-color={color}>
       <a href="https://docs.google.com/forms/d/1ewLKJZfqE_XkUHjG7Uk45901o3fO94Dv_Ipx6G2uMxE/viewform?edit_requested=true" target="blank">
         <div>
-          Ser una Kitty
+          Sé una Kitty
         </div>
       </a>
     </div>
@@ -37,7 +37,7 @@ function NavBtn(color) {
     <div className={`${s.nav_button_container} ${s.appointment}`}>
       <button type="button" onClick={handleClick}>
         <div>
-          Agendar turno
+          Consultas
         </div>
       </button>
     </div>

@@ -41,7 +41,7 @@ export default function Reviews() {
             <Swiper
             slidesPerView={1}
             spaceBetween={10}
-            autoplay={{ delay: 5000 }} 
+            autoplay={false} 
             speed={1000}
             navigation
             pagination={{ clickable: true }}

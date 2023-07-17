@@ -3,17 +3,27 @@ import Image from 'next/image'
 import { gsap } from "gsap";
 import styles from './main-hero.module.scss'
 import RevealTitle from '../title-reveal/title-reveal';
+import SocialNetworkLinks from '../social-network-links/social-network-links';
 import CtaButton from '../cta-button';
+
+const debounce = (func, delay) => {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => func.apply(this, args), delay);
+  };
+};
 
 export default function MainHero() {
   const [isLoaded, setIsLoaded] = useState(false)
   const imageContainerRef = useRef(null);
+  const divInteractionRef = useRef(null);
+  const descRef = useRef(null)
+  // loader and gsap
 
-  let descRef = useRef()
-  const setLoad = () => {
-      
-    setIsLoaded(true)
-    console.log(isLoaded)
+  const setLoad = () => {        
+      setIsLoaded(true)
+      console.log(isLoaded)
   }
 
   useEffect(() => {
@@ -72,7 +82,17 @@ export default function MainHero() {
                               fill 
                               sizes="999px" 
                               alt="Kittysitter Rosario"
-                      />
+                        />
+                        <div
+                          className={styles.interaction}
+                          ref={divInteractionRef}
+                        >
+                          <span className={styles.spawnedSpan}>purrr</span>
+                          <span className={styles.spawnedSpan}>purrr</span>
+                          <span className={styles.spawnedSpan}>purrr</span>
+                          <span className={styles.spawnedSpan}>purrr</span>
+                          <span className={styles.spawnedSpan}>purrr</span>
+                        </div>
                     </div>
                 </div>
             </div>

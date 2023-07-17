@@ -48,11 +48,7 @@
         a,
         button{
           color: black;
-          &:hover {
-            &::after {            
-              background-color: #ffb9a4;
-            }
-          }
+          background-color: white;
           &::after {
             content: '';
             background-color: white;
@@ -67,14 +63,10 @@
           }
   
           &:hover {
+            background-color: black;
             &::after {
-              background-color: #B2A4FF;
-              transform: translate(-0.2rem, -0.2rem);
+              border: 1px solid black;
             }
-            div {
-              color: black;
-              transform: translate(-0.2rem, -0.2rem);
-            }          
           }
         }
       }
@@ -93,7 +85,7 @@
         button{
           &:hover {
             &::after {            
-              background-color: #FDF7C3;
+              background-color: #fcefd6;
             }
           }
         }

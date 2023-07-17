@@ -10,6 +10,10 @@
     height: 100%;
     flex-direction: column;
 
+    @include mobile {
+        overflow: hidden;
+    }
+
 
 }
 
@@ -17,9 +21,9 @@
     max-width: 1200px;
     margin-inline: auto;
     @include mobile {
-        flex-direction: column;
+        flex-direction: column-reverse;
         &:nth-child(2){
-            flex-direction: column-reverse;
+            flex-direction: column;
         }
     }
 }
@@ -30,8 +34,8 @@
 
     grid-column: 5/11;
     h1{
-        font-size: 3.5vw;
-        font-weight: bold;
+        font-size: 4vw;
+        font-weight: 900;
         z-index: 2;
         width: fit-content;
         line-height: 1.2;
@@ -59,8 +63,11 @@
         object-fit: contain;
     }
 
-    &.hidden_cat{
+    @include mobile {
+        height: 400px;
+    }
 
+    &.hidden_cat{
         &::after{
             position: absolute;
             content: "";

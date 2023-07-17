@@ -13,7 +13,7 @@
 .headerMain{
     position: relative;
     z-index: 0;
-    overflow: hidden;
+    // overflow: hidden;
 }
 
 .hero_container {
@@ -25,19 +25,26 @@
 
     position: relative;
 
-    overflow: hidden;
+    // overflow: hidden;
 
     // pointer-events: none;
     .inner_content {
         display: flex;
         position: relative;
+        flex-direction: row;
+        @include mobile {
+            flex-direction: column;
+        }
     }
     .image_area {
         display: flex;
         align-items: center;
-        position: absolute;
+        // position: absolute;
         right: 0;
-        top: 10%;
+        // top: 10%;
+        @include mobile {
+            transform: translateY(-2rem) !important;
+        }
     }
     .image_container {
         display: flex;
@@ -48,10 +55,69 @@
         aspect-ratio: 1;
         transform: rotate(2deg);
         animation: hover-y 2000ms ease-in-out infinite alternate;
+        .interaction {
+            position: absolute;
+            height: 37px;
+            width: 50px;
+            bottom: 12rem;
+            left: 13rem;
+            // border: 1px solid white;            
+            opacity: 0;
+            transition: opacity 200ms linear;
+            .spawnedSpan {
+                position: absolute;
+                opacity: 0;
+                pointer-events: none; /* Ensures that the spans do not interfere with mouse events */
+                white-space: nowrap;
+                font-size: 10px;
+                color: #ffffffc7;
+                font-style: italic;
+                animation: translateYFade linear infinite;
+                animation-duration: 3000ms;
+                animation-delay: 1000ms;
+                animation-play-state: paused; 
+                left: -5px;
+                &:nth-child(2) {
+                    left: 10px;
+                    top: 0px;
+                    animation-delay: 4500ms;
+                }
+                &:nth-child(3) {
+                    left: 30px;
+                    top: -3px;
+                    animation-delay: 3000ms;
+                }
+                &:nth-child(4) {
+                    left: 0px;
+                    top: 5px;
+                    animation-delay: 6000ms;
+                }
+                &:nth-child(5) {
+                    left: 30px;
+                    top: 8px;
+                    animation-delay: 7000ms;
+                }
+            }
+            &:hover{
+                opacity: 1;
+                .spawnedSpan {
+                    animation-play-state: running;                    
+                }
+
+            }
+        }
     }
 
 }
 
+
+
+
+@keyframes translateYFade {
+    0% {opacity: 0;}
+    30% {opacity: 1;}
+    100% {transform: translateY(-42px); opacity: 0;}
+  }
 
 .shadow {
     position: absolute;
@@ -84,12 +150,21 @@
 
     p{
         width: min(500px, 90vw);
-        // margin-inline: auto;
+        color: #434343;
+        padding: 0.5rem;
+
+        @include mobile {
+            text-align: center;
+        }
     }
 
     .cta_area {
         display: flex;
         gap: 1rem;
+        @include mobile {
+            align-items: center;
+            justify-content: center;
+        }
     }
 
     .main_button {
