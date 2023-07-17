@@ -110,7 +110,15 @@
 
 }
 
-
+.logo_hero {
+    width: 226px;
+    height: 68px;
+    position: relative;
+    img{
+        object-fit: contain;
+        height: auto;
+    }
+}
 
 
 @keyframes translateYFade {

@@ -1,25 +1,22 @@
 import React, { useEffect, useLayoutEffect, useRef, Suspense, useState } from 'react'
 import Image from 'next/image'
-import { gsap } from "gsap";
+import { gsap } from "gsap"
 import styles from './main-hero.module.scss'
-import RevealTitle from '../title-reveal/title-reveal';
-import SocialNetworkLinks from '../social-network-links/social-network-links';
-import CtaButton from '../cta-button';
+import RevealTitle from '../title-reveal/title-reveal'
+import SocialNetworkLinks from '../social-network-links/social-network-links'
+import CtaButton from '../cta-button'
 
-const debounce = (func, delay) => {
-  let timer;
-  return (...args) => {
-    clearTimeout(timer);
-    timer = setTimeout(() => func.apply(this, args), delay);
-  };
-};
 
 export default function MainHero() {
   const [isLoaded, setIsLoaded] = useState(false)
-  const imageContainerRef = useRef(null);
-  const divInteractionRef = useRef(null);
+  const imageContainerRef = useRef(null)
+  const divInteractionRef = useRef(null)
   const descRef = useRef(null)
-  // loader and gsap
+  const heroLogoRef = useRef(null) 
+  const ctaAreaRef = useRef(null)
+  const socialLinksRef = useRef(null)
+
+   // loader and gsap
 
   const setLoad = () => {        
       setIsLoaded(true)
@@ -27,33 +24,62 @@ export default function MainHero() {
   }
 
   useEffect(() => {
-    const imageContainer = imageContainerRef.current;
-  
-    gsap.set(imageContainer, {
-      clipPath: 'polygon(0 0, 100% 0, 100% 0, 0 0)',
-      yPercent: '50',
-    });
-  
-    gsap.to(imageContainer, {
-      clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
-      yPercent: '0',
-      duration: 1,
-      delay: 1,
-      ease: 'power2.out',
-    });
+
   }, []);
 
   useEffect(() => {
-    let ctx = gsap.context(() => {   
+    let ctx = gsap.context(() => {
+      const imageContainer = imageContainerRef.current;
+      
+      
+      gsap.set(heroLogoRef.current, {
+        opacity: 0,  
+        yPercent: '50', 
+      })
+      gsap.to(heroLogoRef.current, {
+        opacity: 1,
+        yPercent: '0',
+        delay: 0.5
+      })
+
+      gsap.set(imageContainer, {
+        clipPath: 'polygon(0 0, 100% 0, 100% 0, 0 0)',
+        yPercent: '50',
+      });
+    
+      gsap.to(imageContainer, {
+        clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
+        yPercent: '0',
+        duration: 1.2,
+        delay: 2.2,
+        ease: 'power2.out',
+      });
       gsap.set(descRef.current, {y: 20, opacity: 0 })
 
       gsap.to(descRef.current, {
         y: 0,
         opacity: 1,
-        delay: 0,
+        delay: 1,
         duration: 0.5,
         onComplete: (() => { setLoad() })
       });
+      gsap.set(ctaAreaRef.current.children, {opacity: 0})
+
+      gsap.to(ctaAreaRef.current.children, {
+        opacity: 1,
+        stagger: 0.5,
+        delay: 1.5,
+        duration: 1,
+      })
+
+      gsap.set(socialLinksRef.current, {
+        opacity: 0
+      })
+
+      gsap.to(socialLinksRef.current, {
+        opacity: 1,
+        delay: 3
+      })
 
     })    
     return () => ctx.revert();
@@ -65,15 +91,21 @@ export default function MainHero() {
         <div className={`${styles.hero_container} ${styles.bg_primary_400}`} >
             <div className={`main_container ${styles.inner_content}`}>
                 <div className={styles.hero_box} data-scroll data-scroll-speed="1">
+                  <div className={`${styles.logo_hero}`} ref={heroLogoRef}>
+                    <Image src="/images/kittysitter_logo_nav.png" fill  alt='kittysitter footer logo'/>
+                  </div>
                   <RevealTitle />
                   <p className={`${styles.text_neutral_100} ${styles.description}`} ref={ descRef }>
                     Kittysitter es el primer servicio profesional de cuidado exclusivo de gatitos a 
                     domicilio en Rosario. Somos un equipo de personas altamente responsables, 
                     detallistas y comprometidas.
                   </p>
-                  <div className={`${styles.cta_area}`}>
+                  <div className={`${styles.cta_area}`} ref={ctaAreaRef}>
                     <CtaButton type={'form'}/>
                     <CtaButton type={'kittyForm'}/>
+                  </div>
+                  <div className={`${styles.social_links} ${styles.gap_1}`} ref={socialLinksRef}>
+                    <SocialNetworkLinks/>
                   </div>
                 </div>
                 <div className={styles.image_area} ref={imageContainerRef}>

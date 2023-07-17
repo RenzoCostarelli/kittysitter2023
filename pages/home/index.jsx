@@ -47,7 +47,7 @@ export default function Home() {
       <div data-scroll-section className='scroll-section'>
         <Layout>
           <Head>
-            <title>Kittysitter Rosario</title>
+            <title>KITTYSITTER Rosario</title>
             <meta name="description" content="Kittysitter es el primer servicio profesional de cuidado exclusivo de gatitos a domicilio en Rosario. Somos un equipo de personas altamente responsables, detallistas y comprometidas." />
             <link rel="icon" href="/favicon.ico" />
           </Head>
