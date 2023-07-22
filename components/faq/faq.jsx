@@ -15,48 +15,6 @@ export default function Faq(props) {
   const title2 = useRef()
   const parentRef = useRef()
 
-  // useEffect(() => {
-
-  //   let ctx = gsap.context(() => {
-
-  //     gsap.from(title1.current, {
-  //       opacity: 0,
-  //       xPercent: 50,
-  //       ease: 'none',
-  //       scrollTrigger: {
-  //         trigger: parentRef.current,
-  //         scroller: '.scroll-section',
-  //         start: 'center center',
-  //         end: 'bottom bottom',
-  //         scrub: true,
-  //         markers: true,
-  //       },
-
-  //     })
-  //     gsap.from(title2.current, {
-  //       opacity: 0,
-  //       xPercent: -50,
-  //       ease: 'none',
-  //       scrollTrigger: {
-  //         trigger: title2.current,
-  //         start: 'top center',
-  //         end: 'center center',
-  //         scrub: true,
-  //         markers: true,
-  //       },
-
-  //     })
-  
-  //     ScrollTrigger.refresh()
-  //   })
-  //   return () => ctx.revert()
-
-  // }, [])
-  
-
-
-
-
     return (
       <>
         <div className={styles.wrapper} ref={parentRef}>

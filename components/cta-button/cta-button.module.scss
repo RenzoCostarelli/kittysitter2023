@@ -11,7 +11,7 @@
     a,
     button {
         padding: 0.6rem 2rem;
-        background-color: black;
+        background-color: #434343;
         color: white;
         border-radius: 2rem;
         position: relative;
@@ -22,7 +22,7 @@
         }
         &::after {
           content: '';
-          background-color: black;
+          background-color: #434343;
           position: absolute;
           border-radius: 2.2rem;
           height: 100%;
@@ -30,7 +30,7 @@
           inset: 0;
           z-index: -1;
           transition: 200ms;
-          border: 1px solid black;
+          border: 1px solid #434343;
         }
 
         &:hover {
@@ -39,7 +39,7 @@
             transform: translate(-0.2rem, -0.2rem);
           }
           div {
-            color: black;
+            color: #434343;
             transform: translate(-0.2rem, -0.2rem);
           }          
         }
@@ -47,7 +47,7 @@
       &.be_a_kitty {
         a,
         button{
-          color: black;
+          color: #434343;
           background-color: white;
           &::after {
             content: '';
@@ -63,9 +63,9 @@
           }
   
           &:hover {
-            background-color: black;
+            background-color: #434343;
             &::after {
-              border: 1px solid black;
+              border: 1px solid #434343;
             }
           }
         }
@@ -73,9 +73,13 @@
       &.reviews {
         a,
         button{
+          background-color: #434343;
+          &::after {
+            background-color: #434343;
+          }
           &:hover {
             &::after {            
-              background-color: #B2A4FF;
+              background-color: #fcefd6;
             }
           }
         }

@@ -12,6 +12,7 @@
     }
     img{
         object-fit: contain;
+        filter: grayscale(1);
         // width: auto;
     }
 }

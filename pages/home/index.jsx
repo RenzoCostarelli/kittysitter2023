@@ -98,7 +98,7 @@ export default function Home() {
                 </div>
                 <div className={`${styles.main_container} ${styles.pb_4}`}> 
                   
-                  <h1 className={`section_title_small ${styles.text_center} ${styles.text_neutral_900}  ${styles.drop_shadow_100}`}>Nos viste en:</h1>
+                  {/* <h1 className={`section_title_small ${styles.text_center} ${styles.text_neutral_900}  ${styles.drop_shadow_100}`}>Nos viste en:</h1> */}
 
                   <Medios />
                 </div>

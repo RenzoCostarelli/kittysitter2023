@@ -27,9 +27,6 @@ export default function GalleryScroller() {
           src: `/images/gallery/5.jpg`,
         },
         {
-          src: `/images/gallery/6.jpg`,
-        },
-        {
           src: `/images/gallery/7.jpg`,
         },
         {
