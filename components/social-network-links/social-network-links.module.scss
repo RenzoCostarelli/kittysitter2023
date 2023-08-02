@@ -7,4 +7,7 @@
     .icon{
         width: 40px;
     }
+    @include mobile {
+        justify-content: center;
+    }
 }

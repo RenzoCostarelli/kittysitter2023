@@ -13,21 +13,16 @@
 .headerMain{
     position: relative;
     z-index: 0;
-    // overflow: hidden;
 }
 
 .hero_container {
-    height: 95vh;
+    min-height: 95vh;
 
     display: flex;
     align-items: center;
     justify-content: flex;
 
     position: relative;
-
-    // overflow: hidden;
-
-    // pointer-events: none;
     .inner_content {
         display: flex;
         position: relative;
@@ -39,11 +34,9 @@
     .image_area {
         display: flex;
         align-items: center;
-        // position: absolute;
         right: 0;
-        // top: 10%;
         @include mobile {
-            transform: translateY(-2rem) !important;
+            transform: translateY(-4rem) !important;
         }
     }
     .image_container {
@@ -53,21 +46,19 @@
         position: relative;
         width: min(500px, 90vw);
         aspect-ratio: 1;
-        // transform: rotate(2deg);
         animation: hover-y 2000ms ease-in-out infinite alternate;
         .interaction {
             position: absolute;
             height: 37px;
             width: 55px;
             bottom: 9.5rem;
-            left: 12.6rem;
-            // border: 1px solid white;            
+            left: 12.6rem;           
             opacity: 0;
             transition: opacity 200ms linear;
             .spawnedSpan {
                 position: absolute;
                 opacity: 0;
-                pointer-events: none; /* Ensures that the spans do not interfere with mouse events */
+                pointer-events: none; 
                 white-space: nowrap;
                 font-size: 10px;
                 color: #ffffffc7;
@@ -117,6 +108,9 @@
     img{
         object-fit: contain;
         height: auto;
+    }
+    @include mobile {
+        margin-inline: auto;
     }
 }
 
@@ -241,82 +235,6 @@
             top: -50%;
             left: -25%;
         }
-    }
-}
-
-.cat_paw{
-    position: absolute;
-
-    bottom: 3rem;
-    right: -14rem;
-    
-    height: 600px;
-    width: 400px;
-
-    background-color: #ffffff29;
-    
-    border-radius: 50rem  50rem 10rem 10rem;
-    rotate: 329deg;
-    opacity: .4;
-    .paw_gum{
-        position: absolute;
-        top: 8rem;
-        left: 2rem;
-        height: 90px;
-        width: 75px;
-        background-color: rgba(255, 192, 203, 0.791);
-        border-radius: 50rem;
-        rotate: 333deg;
-
-        box-shadow: 0 0 11px #b784846e;
-        &:nth-child(1){
-            top: 3rem;
-            left: 7rem;
-            rotate: 0deg;
-        }
-        &:nth-child(2){
-            top: 3rem;
-            left: 13rem;
-            rotate: 0deg;
-        }
-        &:nth-child(3){
-            top: 8rem;
-            left: 18rem;
-            rotate: 10deg;
-        }
-    }
-    .cat_bigGum{
-        position: absolute;
-        top: 10rem;
-        left: 7rem;
-        height: 150px;
-        width: 170px;
-        background-color: rgba(255, 192, 203, 0.791);
-        border-radius: 50rem;
-        box-shadow: 0 0 11px #b784846e;
-    }
-
-    &::after{
-        content: "";
-        position: absolute;
-        top: 45%;
-        left: -9rem;
-        height: 400px;
-        width: 180px;
-        background-color: #e8a6a6;
-        border-radius: 50rem;
-        
-        
-    }
-    &::before{
-        content: "";
-        position: absolute;
-        top: 45%;
-        right: -9rem;
-        height: 400px;
-        width: 180px;
-        background-color: #e8a6a6;
-        border-radius: 50rem;
     }
 }
 
