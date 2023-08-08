@@ -63,7 +63,7 @@ export default function GalleryScroller() {
             <div className={`${s.scroll_gallery}`} ref={scrollerRef} data-scroll data-scroll-direction='horizontal' data-scroll-speed="3">
                 {galleryData.map(({ src }) => (
                 <div className={s.gallery_item} key={src}>
-                  <Image src={src} width={1000} height={1000} alt='kittysitter.com.ar'/>
+                  <Image src={src} width={1000} height={1000} alt='kittysitter.com.ar' priority/>
                 </div>
                 ))}
 
