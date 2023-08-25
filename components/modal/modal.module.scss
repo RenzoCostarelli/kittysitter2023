@@ -5,6 +5,11 @@ $column1-width: 40%;
 $column2-width: 60%;
 $gap: 1rem;
 
+@keyframes fadeIn {
+    100% {
+        opacity: 1;
+    }
+}
 
 .modal_container {
     position: fixed;
@@ -12,19 +17,25 @@ $gap: 1rem;
     height: 100vh;
     width: 100vw;
     z-index: 9;
-    background-color: $clr-primary-400;
+    background-color: #f0d6d673;
     top: 0;
+    backdrop-filter: blur(8px);
+    opacity: 0;
+    animation: fadeIn 250ms linear forwards;
     .closeBtn {
         position: absolute;
         font-weight: bold;
         font-size: 2rem;
-        top: 1rem;
-        right: 1rem;
+        top: 2rem;
+        right: 2rem;
+        .close {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
     }
     .grid {
         display: grid;
-        // grid-template-columns: minmax(0, $column1-width) minmax(0, $column2-width);
-        // grid-column-gap: $gap;
         height: 100%;
         @include mobile {
             grid-template-columns: 1fr;
@@ -36,19 +47,17 @@ $gap: 1rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            width: 100%;
-            // &:nth-child(1) {
-            //     background-image: url('/images/gallery/9.jpg');
-            //     background-position: center;
-            //     justify-content: flex-end;
-
-            //     @include mobile {
-            //         display: none;
-            //     }
-            // }
+            
             &:nth-child(2) {
                 overflow:hidden;
                 position:relative;
+            }
+            @include desktop {
+                width: max-content;
+                margin: auto;
+                padding: 4rem 2rem;
+                border-radius: 1rem;
+                box-shadow: 2px 4px 8px 0px #00000017;
             }
         }
 
@@ -61,8 +70,8 @@ $gap: 1rem;
     width: min(500px, 90vw);
     margin-inline: auto;
     h1 {
-        font-weight: bold;
-        font-size: 6vw;
+        font-weight: 900;
+        font-size: clamp(2vw, 20vw, 3rem);
         text-align: center;
         line-height: 1;
         @include mobile {

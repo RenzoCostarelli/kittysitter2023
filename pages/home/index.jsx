@@ -21,6 +21,7 @@ export default function Home() {
 
   const showModal = useStore(({ showForm }) => showForm)
 
+
   useEffect(() => {
     let scroll;
     import("locomotive-scroll").then((locomotiveModule) => {
@@ -30,6 +31,15 @@ export default function Home() {
             smoothMobile: false,
             resetNativeScroll: true
         });
+        if (showModal) {          
+          scroll.stop()
+          console.log(scroll.scroll.stop)
+          console.log(scroll)
+        } else {
+          scroll.start()
+          console.log(scroll.scroll.stop)
+          console.log(scroll)
+        }
     });
 
     // `useEffect`'s cleanup phase
@@ -121,11 +131,11 @@ export default function Home() {
                 </div>
             </div>
             </footer>
+        </Layout>
             
             { showModal && 
-              <ModalContainer />          
+              <ModalContainer/>          
             }
-        </Layout>
      </div>
     )
 }

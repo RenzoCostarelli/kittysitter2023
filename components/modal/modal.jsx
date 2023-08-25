@@ -16,15 +16,11 @@ export default function ModalContainer({ isOpen, onClose, children }) {
 
     return (
 
-        <div className={`${s.modal_container}`}>
-          <div className={`${s.grid}`}>
-              {/* <div className={`${s.column}`}>
-              </div> */}
+        <div className={`${s.modal_container}`} id="fixed-target" >
+          <div className={`${s.grid}`} data-scroll data-scroll-sticky data-scroll-target="#fixed-target">
               <div className={`${s.column}`}>
                   <div className={`${s.title_container} ${s.text_accent_100}`}>
-                      <h1>RESERVÁ</h1>
-                      <h1>TU VISITA</h1>
-                      <p>Aca va un texto que avise que va a whatsapp y que la reserva tiene que ser aceptada previamente</p>
+                    <h1>RESERVÁ TU VISITA</h1>
                   </div>
                   {children}
                   <FormContainer />
@@ -33,7 +29,7 @@ export default function ModalContainer({ isOpen, onClose, children }) {
 
           <div className={`${s.closeBtn}`}>
               <button
-                className="modal-close"
+                className={`${s.close}`}
                 type="button"
                 onClick={handleClick}
               >

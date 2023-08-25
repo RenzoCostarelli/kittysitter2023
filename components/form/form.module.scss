@@ -22,14 +22,14 @@
                 padding: 0.5rem 1rem;
             }
             button {
-                background: rgb(254,164,193);
-                background: linear-gradient(49deg, rgba(254,164,193,1) 0%, rgba(254,164,193,1) 33%, rgba(255,248,136,1) 53%);
+                background: #f0d6d6;
+                // background: linear-gradient(49deg, rgba(254,164,193,1) 0%, rgba(254,164,193,1) 33%, rgba(255,248,136,1) 53%);
                 border: none;
                 padding: 0.5rem;
                 position: relative;
                 z-index: 0;
                 color: rgb(255, 255, 255);
-                border-radius: 1rem;
+                border-radius: 2rem;
                 cursor: pointer;
                 background-size: 350%;
                 background-position: left;
@@ -50,7 +50,7 @@
                 }
                 &:hover {
                     background-size: 100%;                    
-                    color: rgba(254,164,193,1);
+                    color: #f0d6d6;
                     &::after {
                         opacity: 1;
                     }

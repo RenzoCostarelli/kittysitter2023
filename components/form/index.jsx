@@ -1,49 +1,100 @@
 import { useState } from 'react';
-import s from './form.module.scss'
+import s from './form.module.scss';
 
 export default function FormContainer() {
+    const [formData, setFormData] = useState({
+        name: '',
+        address: '',
+        catName: '',
+        dateFrom: '',
+        dateTo: ''
+    });
 
-    const [name, setName] = useState('');
-    const [address, setAddress] = useState('');
-    const [catName, setCatName] = useState('');
-    const [dateFrom, setDateFrom] = useState('');
-    const [dateTo, setDateTo] = useState('');
-  
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      // Here you can send the form data to your server or process it in some other way
-      console.log('Form submitted!');
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prevData => ({
+            ...prevData,
+            [name]: value
+        }));
     };
-  
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        const mensaje = `Hola, mi nombre es ${formData.name}. 
+                       Quería reservar una Kitty para la fecha ${formData.dateFrom} hasta ${formData.dateTo}.
+                       Mi dirección es ${formData.address} y mi gati se llama ${formData.catName}`;
+
+        const phoneNumber = 5493413193402;
+        const encodedMensaje = encodeURIComponent(mensaje);
+        const sendUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMensaje}`;
+        window.open(sendUrl, '_blank').focus();
+    };
+
     return (
-        <div className={`${s.form_container}`}>
-            <form onSubmit={handleSubmit} >
-                <div className={`${s.form_area}`}>
-                    <label for="name">Nombre y apellido:</label>
-                    <input type="text" id="name" name="name" required />
+        <div className={s.form_container}>
+            <form onSubmit={handleSubmit}>
+                <div className={s.form_area}>
+                    <label htmlFor="name">Nombre y apellido:</label>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        value={formData.name} 
+                        onChange={handleChange} 
+                        required 
+                    />
                 </div>
-                <div className={`${s.form_area}`}>
-                    <label for="address">Dirección:</label>
-                    <input type="text" id="address" name="address" required />                    
+                <div className={s.form_area}>
+                    <label htmlFor="address">Dirección:</label>
+                    <input 
+                        type="text" 
+                        id="address" 
+                        name="address" 
+                        value={formData.address} 
+                        onChange={handleChange} 
+                        required 
+                    />                    
                 </div>
-                <div className={`${s.form_area}`}>
-                    <label for="catname">Nombre de tu gatito:</label>
-                    <input type="text" id="catname" name="catname" required />
+                <div className={s.form_area}>
+                    <label htmlFor="catName">Nombre de tu gatito:</label>
+                    <input 
+                        type="text" 
+                        id="catName" 
+                        name="catName" 
+                        value={formData.catName} 
+                        onChange={handleChange} 
+                        required 
+                    />
                 </div>
-                <div className={`${s.group}`}>
-                    <div className={`${s.form_area}`}>
-                        <label for="datefrom">Desde:</label>
-                        <input type="date" id="datefrom" name="datefrom" required />
+                <div className={s.group}>
+                    <div className={s.form_area}>
+                        <label htmlFor="dateFrom">Desde:</label>
+                        <input 
+                            type="date" 
+                            id="dateFrom" 
+                            name="dateFrom" 
+                            value={formData.dateFrom} 
+                            onChange={handleChange} 
+                            required 
+                        />
                     </div>
-                    <div className={`${s.form_area}`}>
-                        <label for="dateto">Hasta:</label>
-                        <input type="date" id="dateto" name="dateto" required />
+                    <div className={s.form_area}>
+                        <label htmlFor="dateTo">Hasta:</label>
+                        <input 
+                            type="date" 
+                            id="dateTo" 
+                            name="dateTo" 
+                            value={formData.dateTo} 
+                            onChange={handleChange} 
+                            required 
+                        />
                     </div>
                 </div>
-                <div className={`${s.form_area}`}>
+                <div className={s.form_area}>
                     <button type="submit">¡MIAU!</button>
                 </div>
             </form>
         </div>
-    )
+    );
 }

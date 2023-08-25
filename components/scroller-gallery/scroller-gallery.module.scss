@@ -51,6 +51,8 @@
             width: 100%;
             height: auto;
         }
-
+        @include mobile {
+            height: 150px;
+        }
     }
 }

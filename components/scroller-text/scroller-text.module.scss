@@ -25,6 +25,12 @@
         color: #434343;
         span{
             margin: 0 2rem;
+            @include mobile {
+                margin: 0 0rem;
+            }
+        }
+        @include mobile {
+            font-size: 10rem;
         }
     }
     &.line{
