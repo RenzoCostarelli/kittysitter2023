@@ -20,12 +20,7 @@ export default function MainHero() {
 
   const setLoad = () => {        
       setIsLoaded(true)
-      console.log(isLoaded)
   }
-
-  useEffect(() => {
-
-  }, []);
 
   useEffect(() => {
     let ctx = gsap.context(() => {
@@ -83,7 +78,7 @@ export default function MainHero() {
 
     })    
     return () => ctx.revert();
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
       return (
@@ -96,9 +91,7 @@ export default function MainHero() {
                   </div>
                   <RevealTitle />
                   <p className={`${styles.text_neutral_100} ${styles.description}`} ref={ descRef }>
-                    Kittysitter es el primer servicio profesional de cuidado exclusivo de gatitos a 
-                    domicilio en Rosario. Somos un equipo de personas altamente responsables, 
-                    detallistas y comprometidas.
+                    Kittysitter es una empresa que ofrece servicios de catsitting a domicilio en Rosario. Fundada por <a href="https://linktr.ee/orlysimbler" target='_blank' rel="noreferrer">Orly Simbler</a> en 2019; pionera en la ciudad, hoy coordina un equipo de cuidadoras que se destaca por su profesionalismo, compromiso, responsabilidad y calidad humana.
                   </p>
                   <div className={`${styles.cta_area}`} ref={ctaAreaRef}>
                     <CtaButton type={'form'}/>

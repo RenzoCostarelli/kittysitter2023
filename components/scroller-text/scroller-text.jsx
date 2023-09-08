@@ -7,14 +7,12 @@ import style from './scroller-text.module.scss'
 
 const TextScroller = React.forwardRef((props, ref) => {
     
-    // console.log(ref, props)
 
     const trigger = ref;
 
     let bigTextRef = useRef(null);
 
     useEffect(() => {
-                  // scroll texto
                   gsap.to(bigTextRef, {
                     xPercent: -150,
                     ease: "none", // <-- IMPORTANT!

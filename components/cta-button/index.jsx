@@ -4,7 +4,7 @@ import useStore from '../../lib/store'
 function KittyBtn({color}) {
   return (
     <div className={`${s.nav_button_container} ${s.be_a_kitty}`} data-color={color}>
-      <a href="https://docs.google.com/forms/d/1ewLKJZfqE_XkUHjG7Uk45901o3fO94Dv_Ipx6G2uMxE/viewform?edit_requested=true" target="blank">
+      <a href="https://docs.google.com/forms/d/1ewLKJZfqE_XkUHjG7Uk45901o3fO94Dv_Ipx6G2uMxE/viewform?edit_requested=true" target="blank" rel="noreferrer">
         <div>
           Quiero ser Kitty
         </div>
@@ -16,7 +16,7 @@ function KittyBtn({color}) {
 function ReviewsBtn(color) {
   return (
     <div className={`${s.nav_button_container} ${s.reviews}`}>
-      <a href="https://shorturl.at/ryNX3" target='blank'>
+      <a href="https://www.google.com/search?q=kittysitter+rosario&rlz=1C1UEAD_esAR980AR980&oq=kittysitter+rosario&aqs=chrome..69i57j0i13i512j69i60l3.3920j0j7&sourceid=chrome&ie=UTF-8#lrd=0x95b7ad7b2ccae8c7:0xa880c6f294a764a9,1,,,," target='blank' rel="noreferrer">
         <div>
           Todas las reseñas
         </div>

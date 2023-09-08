@@ -2,6 +2,7 @@
 @import '../../styles/functions';
 
 .nav_button_container {
+    opacity: 0;
     a {
       display: block;
       width: max-content;
@@ -71,6 +72,7 @@
         }
       }
       &.reviews {
+        opacity: 1;
         a,
         button{
           background-color: #434343;

@@ -33,26 +33,16 @@ export default function Home() {
         });
         if (showModal) {          
           scroll.stop()
-          console.log(scroll.scroll.stop)
-          console.log(scroll)
         } else {
           scroll.start()
-          console.log(scroll.scroll.stop)
-          console.log(scroll)
         }
     });
-
-    // `useEffect`'s cleanup phase
     return () => {
         if (scroll) scroll.destroy();
     }
 });
   
   let scrollerTrigger = useRef();
-  useEffect(() => {
-    // console.log(scrollerTrigger)
-  },[])
-
     return (
       <div data-scroll-section className='scroll-section'>
         <Layout>
@@ -87,10 +77,9 @@ export default function Home() {
                               ${styles.pb_6} 
                               ${styles.flex_align_center}`}>
                 <div className={`${styles.main_container} ${styles.z_index_0} ${styles.w100}`} data-scroll data-scroll-speed="1"> 
-                  {/* deco */}
                   <div className={`${styles.pattern_reviews_section_container} ${styles.pattern_decoration_white_dots}`}></div> 
                   <div className={`${styles.pattern_container_bottom_right} ${styles.pattern_decoration_white_dots}`}></div> 
-                  {/* deco */}     <h1 className={`section_title ${styles.text_center} ${styles.text_accent_100}  ${styles.drop_shadow_100}`}>Reseñas</h1>
+                  <h1 className={`section_title ${styles.text_center} ${styles.text_accent_100}  ${styles.drop_shadow_100}`}>Reseñas</h1>
                     <div className={styles.slider_container}>
                       <Reviews/>
                     </div>
@@ -108,7 +97,7 @@ export default function Home() {
                 </div>
                 <div className={`${styles.main_container} ${styles.pb_4}`}> 
                   
-                  {/* <h1 className={`section_title_small ${styles.text_center} ${styles.text_neutral_900}  ${styles.drop_shadow_100}`}>Nos viste en:</h1> */}
+                  <h1 className={`section_title_small ${styles.text_center} text-primary-400`}>Prensa</h1>
 
                   <Medios />
                 </div>
